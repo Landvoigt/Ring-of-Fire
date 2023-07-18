@@ -3,6 +3,8 @@
     width: 100vw;
     max-width: 100%;
     background-image: url('/assets/img/board.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,6 +63,13 @@
 
 .btn-add {
     position: absolute;
-    right: 32px;
+    left: 32px;
+    top: 32px;
+}
+
+.pin-bottom {
+    position: absolute;
     bottom: 32px;
+    left: 100px;
+    right: 100px;
 }
