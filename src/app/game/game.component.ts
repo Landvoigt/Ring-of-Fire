@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { Game } from 'src/models/game';
+import { Component, OnInit, inject } from '@angular/core';
+import { Game, GameI } from 'src/models/game';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
-import { Firestore, collectionData, collection, setDoc, doc, addDoc } from '@angular/fire/firestore';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { Firestore, collectionData, collection, setDoc, doc, addDoc, docData } from '@angular/fire/firestore';
+
 import { Observable } from 'rxjs';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 // export interface Item { name: string; }
 
@@ -17,28 +18,38 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 export class GameComponent implements OnInit {
   pickCardAnimation = false;
   currentCard: string = '';
-  game!: Game;
+  game: Game = new Game();
   games$: Observable<any>;
 
+  // firestore: Firestore = inject(Firestore);
 
-  constructor(afs: AngularFirestore, private route: ActivatedRoute, private firestore: Firestore, public dialog: MatDialog) {
-    const col = afs.collection('games');
+  constructor(public firestore: AngularFirestore, private route: ActivatedRoute, public dialog: MatDialog) {
+   
+  }
+
+  ngOnInit(): void {
+    // const col = collection(this.firestore, 'games');
+    
 
     this.route.params.subscribe((params) => {
-      col.doc(params['id']).valueChanges().subscribe((game: any) => {
-
+      const gameId = params['id'];
+      // const docRef = doc(col, gameId);
+      // docData(docRef).subscribe((game: GameI) => {
+      //   console.log('Game update', game);
+      //   this.game.players = game.players;
+      //   this.game.stack = game.stack;
+      //   this.game.playedCards = game.playedCards;
+      //   this.game.currentPlayer = game.currentPlayer;
+      // })
+      this.firestore.collection('games').doc(gameId).valueChanges().subscribe((game: GameI) => {
         console.log('Game update', game);
         this.game.players = game.players;
         this.game.stack = game.stack;
         this.game.playedCards = game.playedCards;
         this.game.currentPlayer = game.currentPlayer;
-
-      });
+      })
 
     });
-  }
-
-  ngOnInit(): void {
   }
 
   takeCard() {

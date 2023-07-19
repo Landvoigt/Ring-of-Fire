@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StartScreenComponent } from './start-screen/start-screen.component';
@@ -16,15 +15,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { GameInstructionComponent } from './game-instruction/game-instruction.component';
 import { MatCardModule } from '@angular/material/card';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { RouterModule } from '@angular/router';
+import { AngularFireModule } from '@angular/fire/compat/firebase.app.module';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -47,13 +41,12 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     FormsModule,
     BrowserAnimationsModule,
     RouterModule,
-    AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
-    provideDatabase(() => getDatabase()),
-    provideFirestore(() => getFirestore())
+    AngularFirestoreModule,
+    // provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // provideAuth(() => getAuth()),
+    // provideDatabase(() => getDatabase()),
+    // provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]

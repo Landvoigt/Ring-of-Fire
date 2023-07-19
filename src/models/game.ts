@@ -1,3 +1,10 @@
+export interface GameI{
+    players: string[];
+    stack: string[];
+    playedCards: string[];
+    currentPlayer: number;
+}
+
 export class Game {
     public players: string[] = [];
     public stack: string[] = [];
@@ -20,7 +27,7 @@ export class Game {
             stack: this.stack,
             playedCards: this.playedCards,
             currentPlayer: this.currentPlayer
-        };
+        } as GameI;
     }
 }
 
