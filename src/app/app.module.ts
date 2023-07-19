@@ -15,10 +15,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { GameInstructionComponent } from './game-instruction/game-instruction.component';
 import { MatCardModule } from '@angular/material/card';
-import { RouterModule } from '@angular/router';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat/firebase.app.module';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+
 import { environment } from '../environments/environment';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 
 @NgModule({
   declarations: [
@@ -40,13 +42,8 @@ import { environment } from '../environments/environment';
     MatCardModule,
     FormsModule,
     BrowserAnimationsModule,
-    RouterModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
-    // provideFirebaseApp(() => initializeApp(environment.firebase)),
-    // provideAuth(() => getAuth()),
-    // provideDatabase(() => getDatabase()),
-    // provideFirestore(() => getFirestore())
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,8 +12,8 @@ import { Game } from 'src/models/game';
 
 export class StartScreenComponent implements OnInit {
 
-  //firestore: Firestore = inject(Firestore);
-  constructor(public firestore: AngularFirestore, private router: Router) { }
+  firestore: Firestore = inject(Firestore);
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
 
@@ -21,12 +21,11 @@ export class StartScreenComponent implements OnInit {
 
   newGame() {
     let game = new Game();
-    this.firestore.collection('games').add(game.toJson()).then(newGame => this.router.navigateByUrl('game/' + newGame.id))
-    // const col = collection(this.firestore, 'games');
-    // addDoc(col, game.toJson() )
-    //   .then((gameInfo: any) => {
-    //     console.log(gameInfo.id);
-    //     this.router.navigateByUrl('game/' + gameInfo.id);
-    //   });
+    const col = collection(this.firestore, 'games');
+    addDoc(col, game.toJson() )
+      .then((gameInfo: any) => {
+        console.log(gameInfo.id);
+        this.router.navigateByUrl('game/' + gameInfo.id);
+      });
   }
 }
