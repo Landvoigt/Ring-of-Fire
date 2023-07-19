@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ringoffire-c5f59": {
+      "hosting": {
+        "ringoffire": [
+          "ringoffire-c5f59"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ringoffire-c5f59"
+  }
+}
