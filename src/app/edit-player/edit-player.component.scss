@@ -1,0 +1,23 @@
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    margin: 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    padding: 5px;
+    border: 3px solid rgb(109, 109, 109);
+
+    @media (max-width: 720px) {
+        width: 60px;
+        height: 60px;
+        padding: 2px;
+        border: 1px solid rgb(109, 109, 109);
+        margin: 8px;
+        margin-bottom: 5px;
+    }
+
+    &:hover {
+        filter: opacity(0.4);
+    }
+}

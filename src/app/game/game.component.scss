@@ -8,6 +8,7 @@
     background-image: url("../../assets/img/game_bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
 }
 
 .card-stack {
@@ -66,17 +67,54 @@
 .player-position {
     position: absolute;
     right: 0;
+    z-index: 2;
 }
 
 .btn-add {
     position: absolute;
-    left: 32px;
-    top: 32px;
+    right: 8%;
+    bottom: 4%;
+    margin-right: 15px;
+    margin-bottom: 15px;
+
+    @media (max-width: 720px) {
+        right: 0;
+        bottom: 0;
+    }
 }
 
 .pin-bottom {
     position: absolute;
-    bottom: 32px;
-    left: 100px;
-    right: 100px;
+    bottom: 4%;
+    left: 8%;
+    right: 8%;
+
+    @media (max-width: 720px) {
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+.scroll-container {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    max-width: 100%;
+    z-index: 2;
+    gap: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    display: flex;
+}
+
+app-player, app-player-mobile {
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(1.15);
+    }
 }

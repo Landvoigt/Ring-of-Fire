@@ -2,3 +2,11 @@ mat-card-title {
     padding-left: 16px;
     padding-top: 8px;
 }
+
+mat-card {
+    min-height: 120px !important;
+}
+
+mat-card-content {
+    padding-right: 70px !important;
+}
