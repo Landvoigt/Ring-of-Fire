@@ -2,41 +2,46 @@
     height: 100vh;
     width: 100vw;
     max-width: 100%;
-    background-color: #404040;
+    background-image: url('../../assets/img/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-
-    @media (max-width: 1000px) {
-        overflow: hidden;
-    }
-
-    img {
-        height: 100vh;
-    }
 }
 
 .start-label-container {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
 
     img {
-        height: 120px;
+        height: 130px;
         cursor: pointer;
+        filter: grayscale(0.51);
 
         @media (max-width: 1000px) {
             width: 400px;
             height: auto;
         }
 
-        &:hover {
-            filter: brightness(1.3);
+    }
+
+    &:hover {
+        filter: grayscale(0.51) brightness(1.2);
+    }
+
+    span {
+        position: absolute;
+        z-index: 1;
+        font-size: 58px;
+        cursor: pointer;
+        margin-bottom: 12px;
+
+        @media (max-width: 1000px) {
+            font-size: 40px;
         }
     }
 }

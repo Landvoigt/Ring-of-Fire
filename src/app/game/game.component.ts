@@ -19,6 +19,7 @@ export class GameComponent implements OnInit {
   gameId: string;
   games$: Observable<any>;
   gameOver = false;
+  drawCardSound = new Audio('assets/sounds/draw_card.mp3');
 
   firestore: Firestore = inject(Firestore);
 
@@ -58,7 +59,8 @@ export class GameComponent implements OnInit {
         this.game.playedCards.push(this.game.currentCard);
         this.game.pickCardAnimation = false;
         this.saveGame();
-      }, 1000)
+      }, 600);
+      this.drawCardSound.play();
     }
   }
 

@@ -1,3 +1,9 @@
+.profile-pic-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .profile-picture {
     width: 100px;
     height: 100px;
@@ -19,5 +25,27 @@
 
     &:hover {
         filter: opacity(0.4);
+    }
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-top: 16px;
+    margin-bottom: 12px;
+
+    @media (max-width: 720px) {
+        margin-top: 6px;
+        margin-bottom: 12px;
+    }
+
+    button {
+        font-family: 'Courgette', 'sans-serif' !important;
+        font-size: 17px !important;
+
+        @media (max-width: 720px) {
+            font-size: 15px !important;
+        }
     }
 }

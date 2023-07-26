@@ -1,3 +1,14 @@
+/* courgette-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Courgette';
+    font-style: normal;
+    font-weight: 400;
+    src: url('assets/fonts/courgette-v13-latin-regular.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
 html {
     overflow: hidden;
 }
@@ -5,10 +16,35 @@ html {
 body {
     margin: 0;
     overflow: hidden;
+    font-family: 'Courgette', 'sans-serif' !important;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+    background-color: rgba(233, 217, 192) !important;
+    justify-content: center !important;
+
+}
+
+h3 {
+    font-family: 'Courgette', 'sans-serif' !important;
+    font-size: 32px !important;
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 0;
+    text-shadow: 1px 1px 1px rgba(61, 61, 61, 0.7);
+
+    @media (max-width: 720px) {
+        font-size: 26px !important;
+        margin-top: 0;
+        margin-bottom: 12px;
+    }
+}
 
 @media (min-width: 720px) {
     .hide-desktop {
