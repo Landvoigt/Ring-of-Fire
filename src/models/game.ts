@@ -1,4 +1,4 @@
-export interface GameI{
+export interface GameI {
     players: string[];
     player_images: string[];
     stack: string[];

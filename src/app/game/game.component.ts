@@ -20,6 +20,15 @@ export class GameComponent implements OnInit {
   games$: Observable<any>;
   gameOver = false;
   drawCardSound = new Audio('assets/sounds/draw_card.mp3');
+  // musicBox: string[] = [
+  //   'assets/sounds/_Background Music_ After Midnight - Elegant Jazz Piano 🍷 _ Cinematic No Copyright Music.mp3',
+  //   'assets/sounds/_No Copyright Music_ Hereafter - Ambient Guitar - 4 (Deep & Reflexive Background Music).mp3',
+  //   'assets/sounds/_No Copyright Music_ Indigo - Western Folk Guitar Music (Perfect for vlogs!).mp3',
+  //   'assets/sounds/_No Copyright Music_ Unwound - Vintage 90’s Indie Rock _ Perfect for Vlogging!.mp3',
+  //   'assets/sounds/_No Copyright Music_ Woods - Acoustic Folk _ Background Music.mp3'
+  // ];
+
+  // currentIndex: number = -1;
 
   firestore: Firestore = inject(Firestore);
 
@@ -47,7 +56,7 @@ export class GameComponent implements OnInit {
   }
 
   takeCard() {
-    if(this.game.stack.length == 0) {
+    if (this.game.stack.length == 0) {
       this.gameOver = true;
     } else if (!this.game.pickCardAnimation) {
       this.game.currentCard = this.game.stack.pop() || '';
@@ -69,7 +78,7 @@ export class GameComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((change: string) => {
       if (change) {
-        if(change == 'DELETE') {
+        if (change == 'DELETE') {
           this.game.players.splice(playerId, 1);
           this.game.player_images.splice(playerId, 1);
         } else {
@@ -105,4 +114,24 @@ export class GameComponent implements OnInit {
         console.error('Error saving game:', error);
       });
   }
+
+  // playRandomTrack() {
+  //   const previousIndex = this.currentIndex;
+  //   while (this.currentIndex === previousIndex) {
+  //     this.currentIndex = Math.floor(Math.random() * this.musicBox.length);
+  //   }
+  //   const audioElements = document.getElementsByTagName('audio');
+  //   for (let i = 0; i < audioElements.length; i++) {
+  //     const audio = audioElements[i] as HTMLAudioElement;
+  //     if (i === this.currentIndex) {
+  //       audio.play();
+  //     } else {
+  //       audio.pause();
+  //     }
+  //   }
+  // }
+
+  // onTrackEnded() {
+  //   this.playRandomTrack();
+  // }
 }

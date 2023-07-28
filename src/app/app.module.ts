@@ -23,6 +23,7 @@ import { environment } from '../environments/environment';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { PlayerMobileComponent } from './player-mobile/player-mobile.component';
 import { EditPlayerComponent } from './edit-player/edit-player.component';
+import { MusicBoxComponent } from './music-box/music-box.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { EditPlayerComponent } from './edit-player/edit-player.component';
     DialogAddPlayerComponent,
     GameInstructionComponent,
     PlayerMobileComponent,
-    EditPlayerComponent
+    EditPlayerComponent,
+    MusicBoxComponent
   ],
   imports: [
     BrowserModule,
