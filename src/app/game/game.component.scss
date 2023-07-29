@@ -79,6 +79,10 @@
     margin-right: 15px;
     margin-bottom: 15px;
 
+    &:hover {
+        filter: brightness(1.25);
+    }
+
     @media (max-width: 720px) {
         right: 0;
         bottom: 0;
