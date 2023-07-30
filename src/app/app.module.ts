@@ -24,6 +24,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { PlayerMobileComponent } from './player-mobile/player-mobile.component';
 import { EditPlayerComponent } from './edit-player/edit-player.component';
 import { MusicBoxComponent } from './music-box/music-box.component';
+import { PopupCocktailRecipeComponent } from './popup-cocktail-recipe/popup-cocktail-recipe.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MusicBoxComponent } from './music-box/music-box.component';
     GameInstructionComponent,
     PlayerMobileComponent,
     EditPlayerComponent,
-    MusicBoxComponent
+    MusicBoxComponent,
+    PopupCocktailRecipeComponent
   ],
   imports: [
     BrowserModule,

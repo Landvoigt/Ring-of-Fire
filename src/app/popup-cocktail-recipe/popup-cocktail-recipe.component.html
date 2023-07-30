@@ -1,0 +1,6 @@
+<div [@fadeOut]="recipePopup ? 'visible' : 'hidden'" *ngIf="recipePopup" class="image-box">
+    <img *ngIf="!bigRecipe" src="{{ imgSrc }}" (click)="showBigRecipe()" alt="Cocktail Image" />
+
+</div>
+<img *ngIf="bigRecipe" src="{{ imgSrc }}" (click)="bigRecipe = false" alt="Cocktail Image" class="big-image" />
+<div class="background-div" *ngIf="bigRecipe"></div>

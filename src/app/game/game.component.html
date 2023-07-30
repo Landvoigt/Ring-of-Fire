@@ -30,7 +30,8 @@
     <mat-icon>add</mat-icon>
 </button>
 
-<div *ngIf="gameOver">
-    <img src="assets/">
+<div *ngIf="gameOver" class="game-over-screen" (click)="restartGame()">
+    <img src="assets/img/gameover_screen.png">
 </div>
 <app-music-box></app-music-box>
+<app-popup-cocktail-recipe></app-popup-cocktail-recipe>

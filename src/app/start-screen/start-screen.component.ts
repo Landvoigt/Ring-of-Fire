@@ -1,5 +1,4 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Game } from 'src/models/game';
@@ -11,12 +10,16 @@ import { Game } from 'src/models/game';
 })
 
 export class StartScreenComponent implements OnInit {
-
   firestore: Firestore = inject(Firestore);
+  clickSound = new Audio('assets/sounds/button_click.mp3');
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-
+  }
+  
+  playSound() {
+    this.clickSound.play()
   }
 
   newGame() {

@@ -14,26 +14,14 @@ import { EditPlayerComponent } from '../edit-player/edit-player.component';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
-
+  firestore: Firestore = inject(Firestore);
   game: Game = new Game();
   gameId: string;
   games$: Observable<any>;
   gameOver = false;
   drawCardSound = new Audio('assets/sounds/draw_card.mp3');
-  // musicBox: string[] = [
-  //   'assets/sounds/_Background Music_ After Midnight - Elegant Jazz Piano 🍷 _ Cinematic No Copyright Music.mp3',
-  //   'assets/sounds/_No Copyright Music_ Hereafter - Ambient Guitar - 4 (Deep & Reflexive Background Music).mp3',
-  //   'assets/sounds/_No Copyright Music_ Indigo - Western Folk Guitar Music (Perfect for vlogs!).mp3',
-  //   'assets/sounds/_No Copyright Music_ Unwound - Vintage 90’s Indie Rock _ Perfect for Vlogging!.mp3',
-  //   'assets/sounds/_No Copyright Music_ Woods - Acoustic Folk _ Background Music.mp3'
-  // ];
-
-  // currentIndex: number = -1;
-
-  firestore: Firestore = inject(Firestore);
 
   constructor(private route: ActivatedRoute, public dialog: MatDialog) {
-
   }
 
   ngOnInit(): void {
@@ -115,23 +103,10 @@ export class GameComponent implements OnInit {
       });
   }
 
-  // playRandomTrack() {
-  //   const previousIndex = this.currentIndex;
-  //   while (this.currentIndex === previousIndex) {
-  //     this.currentIndex = Math.floor(Math.random() * this.musicBox.length);
-  //   }
-  //   const audioElements = document.getElementsByTagName('audio');
-  //   for (let i = 0; i < audioElements.length; i++) {
-  //     const audio = audioElements[i] as HTMLAudioElement;
-  //     if (i === this.currentIndex) {
-  //       audio.play();
-  //     } else {
-  //       audio.pause();
-  //     }
-  //   }
-  // }
+  restartGame() {
+    this.game = new Game();
+    this.gameOver = false;
 
-  // onTrackEnded() {
-  //   this.playRandomTrack();
-  // }
+    this.saveGame();
+  }
 }

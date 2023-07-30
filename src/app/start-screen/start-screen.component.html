@@ -1,6 +1,14 @@
 <div class="start-screen">
-    <div (click)="newGame()" class="start-label-container">
+    <div class="h1-container">
+        <h1>Ring of Fire</h1>
+    </div>
+    <img src="assets/img/startscreen_cards.png" class="label-bg">
+    <div (click)="playSound(); newGame()" class="start-label-container">
         <img src="assets/img/button.png" class="button-img">
         <span>Start game</span>
+    </div>
+    <div (click)="playSound()" class="setting-label-container">
+        <img src="assets/img/button.png" class="button-img">
+        <span>Settings</span>
     </div>
 </div>

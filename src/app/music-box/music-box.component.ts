@@ -1,4 +1,3 @@
-// In your component class
 import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 
 @Component({
@@ -8,11 +7,12 @@ import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren } from '@
 })
 export class MusicBoxComponent implements AfterViewInit {
   musicBox: string[] = [
-    'assets/sounds/_Background Music_ After Midnight - Elegant Jazz Piano 🍷 _ Cinematic No Copyright Music.mp3',
     'assets/sounds/_No Copyright Music_ Hereafter - Ambient Guitar - 4 (Deep & Reflexive Background Music).mp3',
     'assets/sounds/_No Copyright Music_ Indigo - Western Folk Guitar Music (Perfect for vlogs!).mp3',
     'assets/sounds/_No Copyright Music_ Unwound - Vintage 90’s Indie Rock _ Perfect for Vlogging!.mp3',
-    'assets/sounds/_No Copyright Music_ Woods - Acoustic Folk _ Background Music.mp3'
+    'assets/sounds/_No Copyright Music_ Woods - Acoustic Folk _ Background Music.mp3',
+    'assets/sounds/_No Copyright Music_ Into The Light - Chill Acoustic Guitar _ Background Music.mp3',
+    'assets/sounds/_No Copyright Music_ Meant to be - Acoustic Folk Guitar _ Background Music.mp3'
   ];
 
   currentIndex: number = -1;
@@ -21,7 +21,6 @@ export class MusicBoxComponent implements AfterViewInit {
   @ViewChildren('audioElement') audioElements!: QueryList<ElementRef<HTMLAudioElement>>;
 
   ngAfterViewInit() {
-    debugger
     this.playRandomTrack();
   }
 

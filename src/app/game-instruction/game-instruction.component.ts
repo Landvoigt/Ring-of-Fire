@@ -11,7 +11,7 @@ export class GameInstructionComponent implements OnInit, OnChanges {
     { title: 'You', description: 'You decide who has to drink.' },
     { title: 'Me', description: 'Congrats! Drink a shot!' },
     { title: 'Category', description: 'Come up with a category. Each player has to enumerate one item from this category.' },
-    { title: 'Thumb Master', description: 'You can put your thumb on the table at every time. If you do it everyone else has to do the same as fast as possible, whoever is last has to drink. You are the thumb master until someone else draws a 5.' },
+    { title: 'Rhyme', description: 'The player who drew the card says a word, and you go around the circle rhyming with that word until someone messes up, and has to drink.' },
     { title: 'Chicks', description: 'All girls drink.' },
     { title: 'Heaven', description: 'Put your hands up! The last player drinks!' },
     { title: 'Mate', description: 'Pick a mate. Your mate always has to drink when you drink and the other way round.' },
