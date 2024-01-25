@@ -18,11 +18,14 @@ jobs:
         npm i
         npm run build
 
+    - name: Run tests
+      run: |
+        npm run test -- --watch=false --browsers=ChromeHeadless
 
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.1
       with:
-        server: w01e334e.kasserver.com
-        username: ${{ w01e334e }}
-        password: ${{ fn6VRbkhUNi4ryb34Nqp }}
+        server: $ {{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USER }}
+        password: ${{ secrets.FTP_PW }}
         local-dir: dist/ringoffire/
